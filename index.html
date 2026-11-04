@@ -1,0 +1,1351 @@
+<title>Klarhafen Gebäudereinigung</title>
+<meta name="description" content="Klarhafen Gebäudereinigung (Demo-Seite, fiktiver Betrieb): Unterhaltsreinigung, Glasreinigung, Treppenhaus, Grundreinigung und Winterdienst für Büros, Praxen und Hausverwaltungen am Bodensee und im Hegau. Mit Beispiel-Angebotsrechner.">
+<meta name="robots" content="noindex, nofollow"><!-- Demo: vor dem Livegang entfernen -->
+<meta property="og:title" content="Klarhafen Gebäudereinigung (Demo)">
+<meta property="og:description" content="Gebäudereinigung am Bodensee und im Hegau: Leistungen, Branchenlösungen und Beispiel-Angebotsrechner. Demo-Seite eines fiktiven Betriebs.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Hanken+Grotesk:wght@400..700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Klarhafen Gebäudereinigung (Demo, fiktiver Betrieb)",
+  "description": "Gebäudereinigung für Büros, Arztpraxen, Kanzleien und Hausverwaltungen am Bodensee und im Hegau. Demo-Seite mit Platzhalterdaten.",
+  "url": "[https://www.ihre-domain.de]",
+  "telephone": "[Telefonnummer ergänzen]",
+  "email": "[E-Mail-Adresse ergänzen]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Straße und Hausnummer ergänzen]",
+    "postalCode": "[PLZ]",
+    "addressLocality": "[Ort ergänzen]",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "Konstanz" },
+    { "@type": "City", "name": "Singen (Hohentwiel)" },
+    { "@type": "City", "name": "Radolfzell am Bodensee" },
+    { "@type": "City", "name": "Stockach" },
+    { "@type": "City", "name": "Überlingen" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Leistungen",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Unterhaltsreinigung für Büro und Praxis" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Glasreinigung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Treppenhausreinigung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Grundreinigung" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Winterdienst" } }
+    ]
+  }
+}
+</script>
+
+<style>
+/* Layout-Konzept: Die Seite liest sich wie ein Leistungsverzeichnis (Positionen, Takt, Bemessung).
+   Leitmotiv ist der Takt: Wochentage und Monate als Raster. Hero: Fensterscheibe mit Wisch-Regler über dem Bodensee. */
+:root {
+  /* Farbe: Seetiefe (petrol), Gischt (aqua), Signal (orange), Tinte */
+  --bg: #F0F5F4;
+  --surface: #FFFFFF;
+  --surface-2: #E1EDEB;
+  --ink: #0B2A33;
+  --ink-2: #41585F;
+  --line: #C5D5D3;
+  --lake: #0B5566;
+  --lake-ink: #FFFFFF;
+  --aqua: #A7DAD7;
+  --accent: #C2410C;
+  --accent-ink: #FFFFFF;
+  --accent-hover: #9A3412;
+  --band: #0B2F3A;
+  --band-ink: #E8F3F1;
+  --band-ink-2: #A9C6C8;
+  --band-line: #2D5764;
+  --band-surface: #123E4B;
+  --focus: #0B5566;
+  --err: #B42318;
+  --ok: #17663F;
+  --ph-bg: #FFF1BD;
+  --ph-ink: #3D3000;
+  --frame: #0B2F3A;
+  --sky-1: #CFEAF0;
+  --sky-2: #F4F1DE;
+  --sun: #FFE08A;
+  --mtn-far: #9DBBC8;
+  --mtn-near: #5F8E94;
+  --hill: #3E6F6A;
+  --water-1: #6FB5C2;
+  --water-2: #1F6F85;
+  --ripple: #FFFFFF;
+  /* Typografie */
+  --font-display: "Bricolage Grotesque", "Arial Narrow", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Hanken Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #08191F;
+    --surface: #0F262E;
+    --surface-2: #153540;
+    --ink: #E7F2F0;
+    --ink-2: #A5C0C3;
+    --line: #274750;
+    --lake: #7CCBD3;
+    --lake-ink: #06222A;
+    --aqua: #2A6B74;
+    --accent: #FF9466;
+    --accent-ink: #2A0E02;
+    --accent-hover: #FFB08D;
+    --band: #0A2A33;
+    --band-ink: #E7F2F0;
+    --band-ink-2: #A5C0C3;
+    --band-line: #2A5260;
+    --band-surface: #10394A;
+    --focus: #FFD24A;
+    --err: #FF9A8F;
+    --ok: #7FD9A6;
+    --ph-bg: #3A3210;
+    --ph-ink: #FFE9A0;
+    --frame: #2F6676;
+    --sky-1: #1B3A5A;
+    --sky-2: #D98E6B;
+    --sun: #FFC27A;
+    --mtn-far: #5B6E8F;
+    --mtn-near: #2F4A66;
+    --hill: #183644;
+    --water-1: #3D5F83;
+    --water-2: #0F2A40;
+    --ripple: #FFD9B0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #08191F;
+  --surface: #0F262E;
+  --surface-2: #153540;
+  --ink: #E7F2F0;
+  --ink-2: #A5C0C3;
+  --line: #274750;
+  --lake: #7CCBD3;
+  --lake-ink: #06222A;
+  --aqua: #2A6B74;
+  --accent: #FF9466;
+  --accent-ink: #2A0E02;
+  --accent-hover: #FFB08D;
+  --band: #0A2A33;
+  --band-ink: #E7F2F0;
+  --band-ink-2: #A5C0C3;
+  --band-line: #2A5260;
+  --band-surface: #10394A;
+  --focus: #FFD24A;
+  --err: #FF9A8F;
+  --ok: #7FD9A6;
+  --ph-bg: #3A3210;
+  --ph-ink: #FFE9A0;
+  --frame: #2F6676;
+  --sky-1: #1B3A5A;
+  --sky-2: #D98E6B;
+  --sun: #FFC27A;
+  --mtn-far: #5B6E8F;
+  --mtn-near: #2F4A66;
+  --hill: #183644;
+  --water-1: #3D5F83;
+  --water-2: #0F2A40;
+  --ripple: #FFD9B0;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+img, svg { max-width: 100%; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.015em; hyphens: manual; }
+p { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+a { color: var(--lake); text-underline-offset: 3px; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; border-radius: 4px; }
+.band :focus-visible, .site-footer :focus-visible, .demo-strip :focus-visible { --focus: #FFD24A; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.skip { position: absolute; left: 16px; top: -100px; background: var(--accent); color: var(--accent-ink); padding: .6rem 1rem; border-radius: 6px; z-index: 50; font-weight: 700; }
+.skip:focus { top: calc(env(safe-area-inset-top, 0px) + 8px); }
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.sec { padding-block: clamp(3.25rem, 7vw, 6rem); scroll-margin-top: 72px; }
+.band { background: var(--band); color: var(--band-ink); }
+.band a { color: var(--band-ink); }
+.band a:hover { color: #FFD7C2; }
+
+.eyebrow { font-family: var(--font-mono); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); font-weight: 500; }
+.band .eyebrow { color: var(--band-ink-2); }
+.sec-head { display: grid; gap: .9rem; max-width: 46rem; margin-bottom: clamp(1.75rem, 4vw, 3rem); }
+.sec-head h2 { font-size: clamp(1.9rem, 4.2vw + .4rem, 3rem); font-weight: 700; }
+.sec-head p { color: var(--ink-2); max-width: 40rem; }
+.band .sec-head p { color: var(--band-ink-2); }
+.tag-demo { display: inline-block; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; padding: .15rem .5rem; border-radius: 3px; background: var(--ph-bg); color: var(--ph-ink); vertical-align: middle; font-weight: 500; }
+.ph { background: var(--ph-bg); color: var(--ph-ink); padding: 0 .3em; border-radius: 3px; border-bottom: 1.5px dashed currentColor; overflow-wrap: anywhere; }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 48px; padding: .75rem 1.3rem; border-radius: 8px; border: 2px solid transparent; font: 700 1rem/1.2 var(--font-body); text-decoration: none; cursor: pointer; transition: background-color .15s, color .15s, border-color .15s; text-align: center; }
+.btn-primary { background: var(--accent); color: var(--accent-ink); }
+.btn-primary:hover { background: var(--accent-hover); color: var(--accent-ink); }
+.btn-ghost { border-color: var(--ink); color: var(--ink); background: transparent; }
+.btn-ghost:hover { background: var(--ink); color: var(--bg); }
+.band .btn-ghost { border-color: var(--band-ink); color: var(--band-ink); }
+.band .btn-ghost:hover { background: var(--band-ink); color: var(--band); }
+
+/* Demo-Leiste und Header */
+.demo-strip { background: var(--band); color: var(--band-ink); font-family: var(--font-mono); font-size: .74rem; letter-spacing: .06em; }
+.demo-strip .wrap { padding-block: .45rem; display: flex; flex-wrap: wrap; gap: .1rem 1rem; justify-content: space-between; }
+.demo-strip strong { font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: #FFD7A8; }
+.site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; align-items: center; gap: 1rem; min-height: 64px; position: relative; }
+.brand { display: flex; align-items: center; gap: .7rem; text-decoration: none; color: var(--ink); margin-right: auto; }
+.brand:hover { color: var(--ink); }
+.brand svg { flex: none; }
+.brand b { display: block; font-family: var(--font-display); font-weight: 750; font-size: 1.28rem; line-height: 1; letter-spacing: -.02em; }
+.brand small { display: block; margin-top: .22rem; font-family: var(--font-mono); font-size: .6rem; letter-spacing: .16em; text-transform: uppercase; color: var(--ink-2); }
+.menu-btn { min-width: 48px; min-height: 48px; display: inline-flex; align-items: center; justify-content: center; gap: .5rem; background: transparent; color: var(--ink); border: 2px solid var(--ink); border-radius: 8px; font: 700 .95rem var(--font-body); padding: 0 .9rem; cursor: pointer; }
+.nav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--bg); border-bottom: 1px solid var(--line); padding: .5rem max(16px, env(safe-area-inset-left, 0px)) 1rem; box-shadow: 0 18px 30px -18px rgba(0,0,0,.35); }
+.nav.open { display: block; }
+.nav ul { display: grid; }
+.nav a { display: block; padding: .8rem 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); font-weight: 600; }
+.nav a:hover { color: var(--accent); }
+.nav .btn { margin-top: .9rem; width: 100%; border-bottom: 2px solid transparent; color: var(--accent-ink); }
+.nav .btn:hover { color: var(--accent-ink); }
+@media (min-width: 1020px) {
+  .menu-btn { display: none; }
+  .nav { display: flex; align-items: center; gap: 1.4rem; position: static; padding: 0; border: 0; background: transparent; box-shadow: none; }
+  .nav ul { display: flex; gap: 1.3rem; }
+  .nav a { border: 0; padding: .4rem 0; font-size: .96rem; }
+  .nav .btn { margin: 0; width: auto; min-height: 44px; padding: .55rem 1.1rem; }
+}
+
+/* Hero */
+.hero { padding-block: clamp(2rem, 5vw, 4.5rem) clamp(2.5rem, 6vw, 5rem); background: linear-gradient(180deg, var(--bg) 0%, var(--surface-2) 100%); border-bottom: 1px solid var(--line); }
+.hero .wrap { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr); align-items: center; }
+@media (min-width: 900px) { .hero .wrap { grid-template-columns: minmax(0, 1.12fr) minmax(0, .88fr); gap: 4rem; } }
+.hero h1 { font-size: clamp(2.35rem, 7.4vw, 4.7rem); font-weight: 750; line-height: .98; letter-spacing: -.03em; margin-top: 1rem; }
+.hero h1 .swipe { background: linear-gradient(100deg, transparent 0 1%, var(--aqua) 1% 99%, transparent 99%); background-size: 100% .42em; background-repeat: no-repeat; background-position: 0 88%; padding-inline: .06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.hero .lead { margin-top: 1.4rem; font-size: 1.15rem; max-width: 36rem; color: var(--ink-2); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+.hero-meta { margin-top: 2rem; display: grid; gap: .5rem; font-family: var(--font-mono); font-size: .8rem; color: var(--ink-2); letter-spacing: .02em; }
+.hero-meta dt { text-transform: uppercase; letter-spacing: .12em; font-size: .7rem; }
+.hero-meta dd { margin: 0; color: var(--ink); }
+.hero-meta div { display: grid; gap: .1rem; }
+
+/* Wisch-Regler */
+.wipe-wrap { width: 100%; max-width: 440px; margin-inline: auto; }
+.wipe { --pos: 50%; position: relative; aspect-ratio: 4 / 5; border: 10px solid var(--frame); border-radius: 14px; overflow: hidden; background: var(--sky-1); box-shadow: 0 30px 50px -30px rgba(5, 30, 40, .55); isolation: isolate; }
+.wipe svg.scene { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.grime { position: absolute; inset: 0; clip-path: inset(0 0 0 var(--pos)); -webkit-clip-path: inset(0 0 0 var(--pos)); background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .38 0 0 0 0 .32 0 0 0 0 .22 0 0 0 1.5 -.42'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),
+    repeating-linear-gradient(96deg, transparent 0 17px, rgba(84, 70, 46, .16) 17px 19px, transparent 19px 38px, rgba(84, 70, 46, .08) 38px 45px, transparent 45px 63px),
+    rgba(128, 112, 80, .34);
+  -webkit-backdrop-filter: blur(2.5px) saturate(.6); backdrop-filter: blur(2.5px) saturate(.6); pointer-events: none; }
+.wipe .knob { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 3px; margin-left: -1.5px; background: #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.18); pointer-events: none; }
+.wipe .knob span { position: absolute; top: 50%; left: 50%; width: 48px; height: 48px; margin: -24px 0 0 -24px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; box-shadow: 0 6px 16px rgba(0,0,0,.35); border: 3px solid #fff; }
+.wipe:has(input:focus-visible) .knob span { outline: 3px solid #FFD24A; outline-offset: 3px; }
+.wipe input[type="range"] { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; touch-action: pan-y; z-index: 3; }
+.wipe .lbl { position: absolute; top: .7rem; z-index: 2; font-family: var(--font-mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; padding: .2rem .5rem; border-radius: 3px; background: rgba(11, 42, 51, .86); color: #fff; pointer-events: none; }
+.wipe .lbl.l { left: .7rem; }
+.wipe .lbl.r { right: .7rem; }
+.wipe-cap { margin-top: .8rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .04em; color: var(--ink-2); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+/* Leistungsverzeichnis */
+.lv { border-top: 3px solid var(--ink); }
+.lv details { border-bottom: 1px solid var(--line); }
+.lv summary { list-style: none; display: grid; grid-template-columns: 2.7rem minmax(0, 1fr) 2rem; grid-template-areas: "pos title tog" ". meta tog"; gap: .15rem .8rem; align-items: baseline; padding: 1.15rem 0; cursor: pointer; }
+.lv summary::-webkit-details-marker { display: none; }
+.lv summary:hover .t { color: var(--accent); }
+.lv .pp { display: none; }
+.lv .pos { grid-area: pos; font-family: var(--font-mono); font-size: .85rem; color: var(--ink-2); }
+.lv .t { grid-area: title; font-family: var(--font-display); font-weight: 700; font-size: clamp(1.3rem, 2.4vw + .5rem, 1.9rem); letter-spacing: -.02em; line-height: 1.1; }
+.lv .meta { grid-area: meta; display: flex; flex-wrap: wrap; gap: .2rem 1.2rem; font-family: var(--font-mono); font-size: .76rem; color: var(--ink-2); }
+.lv .meta b { font-weight: 500; color: var(--ink); }
+.lv .tog { grid-area: tog; align-self: center; justify-self: end; width: 1.9rem; height: 1.9rem; border: 2px solid var(--ink); border-radius: 50%; position: relative; }
+.lv .tog::before, .lv .tog::after { content: ""; position: absolute; left: 50%; top: 50%; width: .8rem; height: 2px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .2s; }
+.lv .tog::after { transform: translate(-50%, -50%) rotate(90deg); }
+.lv details[open] .tog::after { transform: translate(-50%, -50%) rotate(0deg); }
+.lv .body { display: grid; gap: 1.2rem 3rem; padding: 0 0 1.6rem 3.5rem; }
+.lv .body p { color: var(--ink-2); max-width: 36rem; }
+.lv .body h4 { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: var(--ink-2); margin-bottom: .5rem; }
+.lv .body li { position: relative; padding-left: 1.3rem; margin-bottom: .3rem; }
+.lv .body li::before { content: ""; position: absolute; left: 0; top: .72em; width: .7rem; height: 2px; background: var(--accent); }
+@media (min-width: 820px) {
+  .lv .pp { display: inline; }
+  .lv summary { grid-template-columns: 4rem minmax(0, 1.5fr) minmax(0, 1fr) 2.2rem; grid-template-areas: "pos title meta tog"; align-items: center; }
+  .lv .meta { flex-direction: column; gap: .1rem; }
+  .lv .body { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); padding-left: 4rem; }
+}
+@media (max-width: 480px) { .lv .body { padding-left: 0; } }
+
+/* Branchen (Tabs) */
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.6rem; }
+.tab { min-height: 48px; padding: .6rem 1.15rem; border-radius: 8px; border: 2px solid var(--band-line); background: transparent; color: var(--band-ink); font: 700 1rem var(--font-body); cursor: pointer; }
+.tab:hover { border-color: var(--band-ink); }
+.tab[aria-selected="true"] { background: var(--band-ink); color: var(--band); border-color: var(--band-ink); }
+.panel h3 { font-size: clamp(1.6rem, 3vw + .4rem, 2.4rem); font-weight: 700; max-width: 40rem; }
+.panel .lead { margin-top: .9rem; color: var(--band-ink-2); max-width: 40rem; }
+.panel-grid { margin-top: 2rem; display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 860px) { .panel-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.pcard { background: var(--band-surface); border: 1px solid var(--band-line); border-radius: 10px; padding: 1.3rem 1.3rem 1.4rem; }
+.pcard h4 { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: var(--band-ink-2); margin-bottom: .8rem; }
+.pcard li { position: relative; padding-left: 1.3rem; margin-bottom: .55rem; }
+.pcard li::before { content: ""; position: absolute; left: 0; top: .72em; width: .7rem; height: 2px; background: #FF9466; }
+.pcard p { font-size: 1.02rem; }
+
+/* Rechner */
+.calc-sec { background: var(--surface-2); border-block: 1px solid var(--line); }
+.calc { display: grid; gap: 1.5rem; grid-template-columns: minmax(0, 1fr); align-items: start; }
+@media (min-width: 960px) { .calc { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 2rem; } }
+.calc-form, .calc-out { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: clamp(1.1rem, 3vw, 1.9rem); }
+.calc-out { border: 2px solid var(--ink); position: relative; }
+.calc-form fieldset { border: 0; margin: 0 0 1.5rem; padding: 0; min-width: 0; }
+.calc-form legend, .calc-form .flabel { font-family: var(--font-mono); font-size: .76rem; letter-spacing: .1em; text-transform: uppercase; font-weight: 500; color: var(--ink-2); padding: 0; margin-bottom: .7rem; display: block; }
+.svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: .55rem; }
+.opt { position: relative; display: block; }
+.opt input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.opt > span { display: flex; align-items: center; min-height: 48px; padding: .6rem .9rem; border: 2px solid var(--line); border-radius: 8px; font-weight: 600; background: var(--bg); line-height: 1.25; overflow-wrap: anywhere; transition: border-color .15s, background-color .15s; }
+.opt:hover > span { border-color: var(--ink-2); }
+.opt input:checked + span { border-color: var(--lake); background: var(--lake); color: var(--lake-ink); }
+.opt input:focus-visible + span { outline: 3px solid var(--focus); outline-offset: 3px; }
+.opt.chk > span { gap: .7rem; }
+.opt.chk > span::before { content: ""; flex: none; width: 1.2rem; height: 1.2rem; border: 2px solid currentColor; border-radius: 4px; background: transparent; }
+.opt.chk input:checked + span::before { background: currentColor; box-shadow: inset 0 0 0 3px var(--lake); }
+.area-row { display: grid; grid-template-columns: minmax(0, 1fr) 7.5rem; gap: 1rem; align-items: center; }
+.area-row input[type="number"] { width: 100%; min-height: 48px; font: 600 1.1rem var(--font-mono); padding: .4rem .7rem; border: 2px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); text-align: right; }
+.area-row .unit { display: block; font-family: var(--font-mono); font-size: .72rem; color: var(--ink-2); text-align: right; margin-top: .2rem; }
+input[type="range"].slider { -webkit-appearance: none; appearance: none; width: 100%; height: 36px; background: transparent; cursor: pointer; margin: 0; }
+input[type="range"].slider::-webkit-slider-runnable-track { height: 6px; border-radius: 3px; background: linear-gradient(90deg, var(--lake) var(--fill, 30%), var(--line) var(--fill, 30%)); }
+input[type="range"].slider::-moz-range-track { height: 6px; border-radius: 3px; background: var(--line); }
+input[type="range"].slider::-moz-range-progress { height: 6px; border-radius: 3px; background: var(--lake); }
+input[type="range"].slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--ink); margin-top: -11px; }
+input[type="range"].slider::-moz-range-thumb { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); border: 3px solid var(--surface); box-shadow: 0 0 0 2px var(--ink); }
+.calc-help { font-size: .92rem; color: var(--ink-2); margin-top: .5rem; }
+.iv-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: .55rem; }
+
+.badge-demo { display: inline-flex; align-items: center; gap: .5rem; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; background: var(--ph-bg); color: var(--ph-ink); padding: .3rem .65rem; border-radius: 4px; font-weight: 500; }
+.out-svc { margin-top: 1rem; font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; letter-spacing: -.01em; }
+.out-range { margin-top: .4rem; font-family: var(--font-display); font-weight: 750; font-size: clamp(2.1rem, 8vw, 3.4rem); letter-spacing: -.03em; line-height: 1; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.out-unit { display: block; margin-top: .4rem; font-family: var(--font-mono); font-size: .8rem; letter-spacing: .04em; color: var(--ink-2); font-weight: 500; }
+.bar { margin-top: 1.2rem; }
+.bar-track { position: relative; height: 14px; border-radius: 7px; background: var(--surface-2); border: 1px solid var(--line); overflow: hidden; }
+.bar-fill { position: absolute; top: 0; bottom: 0; left: 0; width: 40%; background: repeating-linear-gradient(135deg, var(--lake) 0 6px, color-mix(in srgb, var(--lake) 80%, var(--surface)) 6px 12px); border-radius: 7px; transition: left .25s, width .25s; }
+.bar-axis { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: .7rem; color: var(--ink-2); margin-top: .35rem; font-variant-numeric: tabular-nums; }
+.takt { margin-top: 1.4rem; }
+.takt-title { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); margin-bottom: .5rem; }
+.takt-grid { display: grid; gap: 4px; }
+.takt-grid.days { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+.takt-grid.months { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+@media (min-width: 560px) { .takt-grid.months { grid-template-columns: repeat(12, minmax(0, 1fr)); } }
+.cell { text-align: center; padding: .45rem 0; border-radius: 4px; border: 1px solid var(--line); font-family: var(--font-mono); font-size: .72rem; color: var(--ink-2); background: var(--bg); }
+.cell.on { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 500; }
+.ledger { margin: 1.4rem 0 0; border-top: 2px solid var(--ink); }
+.ledger div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: .8rem; padding: .55rem 0; border-bottom: 1px solid var(--line); font-size: .95rem; }
+.ledger dt { color: var(--ink-2); }
+.ledger dd { margin: 0; text-align: right; font-family: var(--font-mono); font-size: .86rem; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.out-actions { margin-top: 1.4rem; display: grid; gap: .8rem; }
+.fine { font-size: .84rem; color: var(--ink-2); line-height: 1.5; }
+
+/* Ablauf */
+.steps { display: grid; gap: 2rem; counter-reset: s; }
+.step { position: relative; display: grid; grid-template-columns: 3.4rem minmax(0, 1fr); gap: 0 1.1rem; }
+.step::before { content: ""; position: absolute; left: 1.7rem; top: 3.4rem; bottom: -2rem; width: 2px; background: repeating-linear-gradient(180deg, var(--ink-2) 0 6px, transparent 6px 12px); }
+.step:last-child::before { display: none; }
+.step .n { width: 3.4rem; height: 3.4rem; border-radius: 50%; display: grid; place-items: center; background: var(--ink); color: var(--bg); font-family: var(--font-mono); font-size: 1.15rem; font-weight: 500; }
+.step h3 { font-size: 1.6rem; font-weight: 700; padding-top: .3rem; }
+.step p { margin-top: .5rem; color: var(--ink-2); max-width: 34rem; }
+.step ul { margin-top: .8rem; display: grid; gap: .3rem; }
+.step li { position: relative; padding-left: 1.3rem; }
+.step li::before { content: ""; position: absolute; left: 0; top: .72em; width: .7rem; height: 2px; background: var(--accent); }
+.step .result { margin-top: 1rem; font-family: var(--font-mono); font-size: .78rem; letter-spacing: .03em; padding: .5rem .7rem; background: var(--surface-2); border-radius: 4px; display: inline-block; }
+@media (min-width: 900px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .step { grid-template-columns: minmax(0, 1fr); gap: 1rem 0; }
+  .step::before { left: 4.1rem; right: -2.5rem; top: 1.7rem; bottom: auto; width: auto; height: 2px; background: repeating-linear-gradient(90deg, var(--ink-2) 0 6px, transparent 6px 12px); }
+}
+
+/* Qualität */
+.q-grid { display: grid; gap: 2.5rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .q-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 4rem; } }
+.q-list li { padding: 1rem 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); gap: .3rem 1rem; }
+.q-list li:first-child { border-top: 2px solid var(--ink); }
+.q-list .qi { font-family: var(--font-mono); color: var(--accent); font-weight: 500; }
+.q-list b { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; display: block; }
+.q-list span.d { color: var(--ink-2); }
+.ph-grid { display: grid; gap: .9rem; grid-template-columns: repeat(auto-fit, minmax(13.5rem, 1fr)); align-content: start; }
+.ph-tile { border: 2px dashed var(--ink-2); border-radius: 10px; padding: 1.1rem 1.1rem 1.2rem; display: grid; gap: .6rem; align-content: start; background: var(--surface); }
+.ph-tile h3 { font-size: 1.1rem; font-weight: 700; }
+.ph-tile p { font-size: .94rem; color: var(--ink-2); }
+.ph-quote { grid-column: 1 / -1; }
+
+/* Kontakt */
+.contact { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 960px) { .contact { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 4rem; } }
+.contact-info { display: grid; gap: 1.4rem; align-content: start; }
+.contact-info h3 { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: var(--band-ink-2); margin-bottom: .35rem; }
+.contact-info .ph { background: rgba(255, 241, 189, .14); color: #FFE9A0; }
+.form-card { background: var(--surface); color: var(--ink); border-radius: 14px; padding: clamp(1.1rem, 3vw, 2rem); }
+.form-card a { color: var(--lake); }
+.form-card :focus-visible { --focus: var(--lake); }
+.form-note { display: flex; gap: .6rem; align-items: flex-start; background: var(--ph-bg); color: var(--ph-ink); padding: .7rem .9rem; border-radius: 8px; font-size: .92rem; margin-bottom: 1.3rem; }
+.form-grid { display: grid; gap: 1rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 620px) { .form-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .form-grid .full { grid-column: 1 / -1; } }
+.field { display: grid; gap: .35rem; min-width: 0; }
+.field label { font-weight: 600; font-size: .95rem; }
+.field label i { font-style: normal; color: var(--err); }
+.field input, .field select, .field textarea { width: 100%; min-height: 48px; padding: .65rem .8rem; border: 2px solid var(--line); border-radius: 8px; background: var(--bg); color: var(--ink); font: 400 1rem var(--font-body); }
+.field textarea { min-height: 7.5rem; resize: vertical; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline: 3px solid var(--lake); outline-offset: 2px; border-color: var(--lake); }
+.field .err { color: var(--err); font-size: .88rem; font-weight: 600; display: none; }
+.field.bad .err { display: block; }
+.field.bad input, .field.bad select, .field.bad textarea { border-color: var(--err); }
+.consent { display: grid; grid-template-columns: 1.4rem minmax(0, 1fr); gap: .7rem; align-items: start; font-size: .94rem; }
+.consent input { width: 1.4rem; height: 1.4rem; margin: .1rem 0 0; accent-color: var(--lake); }
+.form-status { margin-top: 1.1rem; padding: .9rem 1rem; border-radius: 8px; border: 2px solid var(--ok); color: var(--ok); font-weight: 600; display: none; }
+.form-status.show { display: block; }
+.form-status.error { border-color: var(--err); color: var(--err); }
+
+/* Footer */
+.site-footer { background: var(--band); color: var(--band-ink); padding-block: 2.6rem calc(2rem + env(safe-area-inset-bottom, 0px)); border-top: 4px solid var(--accent); }
+.site-footer a { color: var(--band-ink); }
+.site-footer a:hover { color: #FFD7C2; }
+.foot-grid { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .foot-grid { grid-template-columns: 1.4fr 1fr 1fr; } }
+.foot-grid h2 { font-family: var(--font-mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 500; color: var(--band-ink-2); margin-bottom: .7rem; }
+.foot-grid li { margin-bottom: .35rem; }
+.foot-demo { margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--band-line); font-size: .9rem; color: var(--band-ink-2); }
+.foot-demo strong { color: #FFD7A8; }
+.foot-brand b { font-family: var(--font-display); font-size: 1.5rem; font-weight: 750; letter-spacing: -.02em; display: block; }
+
+/* Rechtstexte */
+.legal { padding-block: clamp(2rem, 5vw, 4rem) clamp(3rem, 7vw, 6rem); scroll-margin-top: 72px; }
+.legal .col { max-width: 46rem; }
+.legal h1 { font-size: clamp(2.2rem, 6vw, 3.6rem); font-weight: 750; margin: .9rem 0 1.2rem; }
+.legal h2 { font-size: 1.35rem; font-weight: 700; margin: 2rem 0 .6rem; }
+.legal p, .legal li { color: var(--ink-2); }
+.legal p + p { margin-top: .8rem; }
+.legal ul { display: grid; gap: .3rem; margin-top: .6rem; list-style: disc; padding-left: 1.2rem; }
+.legal .warn { background: var(--ph-bg); color: var(--ph-ink); padding: .9rem 1rem; border-radius: 8px; margin: 1rem 0 0; }
+.legal .warn p { color: inherit; }
+.back { display: inline-flex; align-items: center; gap: .4rem; font-weight: 600; }
+.fields { margin: 1rem 0 0; border-top: 2px solid var(--ink); }
+.fields div { display: grid; gap: .25rem 1.2rem; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+@media (min-width: 640px) { .fields div { grid-template-columns: 13rem minmax(0, 1fr); } }
+.fields dt { font-family: var(--font-mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-2); padding-top: .15rem; }
+.fields dd { margin: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+</style>
+
+<div id="top" lang="de">
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+
+<div class="demo-strip" role="note">
+  <div class="wrap">
+    <span><strong>Demo-Seite</strong> · fiktiver Betrieb</span>
+    <span>Alle Inhalte, Preise und Angaben sind Beispiele</span>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#start" aria-label="Klarhafen Gebäudereinigung, zur Startseite">
+      <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true" focusable="false">
+        <rect width="40" height="40" rx="9" fill="var(--lake)"/>
+        <path d="M0 27 C10 20 22 33 40 22 L40 40 L0 40 Z" fill="var(--aqua)" opacity=".9"/>
+        <path d="M9 12 H31" stroke="var(--lake-ink)" stroke-width="3.2" stroke-linecap="round"/>
+        <path d="M13 12 L24 25" stroke="var(--lake-ink)" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="29" cy="25" r="2.6" fill="var(--lake-ink)"/>
+      </svg>
+      <span><b>Klarhafen</b><small>Gebäudereinigung</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+      Menü
+    </button>
+    <nav class="nav" id="nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#branchen">Branchen</a></li>
+        <li><a href="#rechner">Angebotsrechner</a></li>
+        <li><a href="#ablauf">Ablauf</a></li>
+        <li><a href="#qualitaet">Qualität</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a class="btn btn-primary" href="#kontakt">Besichtigung anfragen</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inhalt">
+
+<div id="view-home">
+
+<!-- HERO -->
+<section class="hero" id="start" aria-labelledby="h1">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">Gebäudereinigung · Bodensee &amp; Hegau</p>
+      <h1 id="h1">Sauber im <span class="swipe">festen Takt.</span> Von Konstanz bis in den Hegau.</h1>
+      <p class="lead">Unterhaltsreinigung, Glasreinigung, Treppenhaus, Grundreinigung und Winterdienst für Büros, Praxen, Kanzleien und Hausverwaltungen. Mit schriftlichem Reinigungsplan und fester Ansprechperson.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#rechner">Preisspanne berechnen</a>
+        <a class="btn btn-ghost" href="#kontakt">Besichtigung anfragen</a>
+      </div>
+      <dl class="hero-meta">
+        <div><dt>Einsatzgebiet</dt><dd>Konstanz · Radolfzell · Singen · Stockach · Überlingen</dd></div>
+        <div><dt>Für</dt><dd>Büro · Arztpraxis · Kanzlei · Hausverwaltung</dd></div>
+      </dl>
+    </div>
+
+    <div class="wipe-wrap">
+      <div class="wipe" id="wipe" style="--pos:50%">
+        <svg class="scene" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="gSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--sky-1)"/><stop offset="1" style="stop-color:var(--sky-2)"/></linearGradient>
+            <linearGradient id="gWater" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--water-1)"/><stop offset="1" style="stop-color:var(--water-2)"/></linearGradient>
+          </defs>
+          <rect width="400" height="340" fill="url(#gSky)"/>
+          <circle cx="292" cy="140" r="34" fill="var(--sun)"/>
+          <path d="M0 305 L36 266 L64 284 L118 212 L150 246 L192 186 L226 238 L262 214 L304 266 L346 234 L400 288 L400 345 L0 345 Z" fill="var(--mtn-far)"/>
+          <path d="M118 212 L132 232 L124 228 L118 240 L110 226 Z M192 186 L206 212 L198 208 L192 222 L184 206 Z" fill="#fff" opacity=".55"/>
+          <path d="M0 336 C56 304 118 312 182 326 C252 340 322 304 400 322 L400 350 L0 350 Z" fill="var(--mtn-near)"/>
+          <path d="M0 344 C70 328 150 340 230 338 C300 336 350 326 400 338 L400 356 L0 356 Z" fill="var(--hill)"/>
+          <rect y="350" width="400" height="150" fill="url(#gWater)"/>
+          <g stroke="var(--ripple)" stroke-width="2" stroke-linecap="round" opacity=".42">
+            <path d="M30 372 h46 M120 384 h70 M240 370 h56 M320 392 h48 M60 410 h84 M200 420 h60 M300 436 h72 M24 450 h60 M130 462 h90 M250 474 h56"/>
+          </g>
+          <g stroke="var(--sun)" stroke-width="3" stroke-linecap="round" opacity=".75">
+            <path d="M280 362 h24 M276 376 h32 M284 392 h16 M278 408 h28"/>
+          </g>
+          <g transform="translate(96 392)">
+            <path d="M0 22 H54 L46 34 H8 Z" fill="#fff"/>
+            <path d="M26 0 V20 H4 Z" fill="#fff"/>
+            <path d="M30 6 V20 H48 Z" fill="#fff" opacity=".85"/>
+          </g>
+          <path d="M-20 0 L120 0 L-20 160 Z" fill="#fff" opacity=".10"/>
+          <path d="M150 0 L210 0 L40 260 L-20 260 Z" fill="#fff" opacity=".07" transform="translate(120 120)"/>
+          <g stroke="var(--frame)" stroke-width="9" fill="none">
+            <path d="M200 0 V500"/>
+            <path d="M0 168 H400"/>
+            <path d="M0 334 H400"/>
+          </g>
+          <g fill="var(--frame)"><rect x="186" y="236" width="9" height="30" rx="3"/><rect x="205" y="236" width="9" height="30" rx="3"/></g>
+        </svg>
+        <div class="grime" aria-hidden="true"></div>
+        <span class="lbl l" aria-hidden="true">Nachher</span>
+        <span class="lbl r" aria-hidden="true">Vorher</span>
+        <div class="knob" aria-hidden="true"><span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" focusable="false"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+        </span></div>
+        <input type="range" id="wipeRange" min="0" max="100" value="50" step="1" aria-label="Vorher-Nachher-Vergleich einer Fensterscheibe. Regler verschieben, um die Scheibe zu reinigen." aria-valuetext="50 Prozent gereinigt">
+      </div>
+      <p class="wipe-cap"><span>Beispiel-Illustration · Regler ziehen</span><span>Blick auf den See</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="sec" id="leistungen" aria-labelledby="h-leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Leistungsverzeichnis</p>
+      <h2 id="h-leistungen">Fünf Leistungen, jede mit eigenem Takt</h2>
+      <p>Im Angebot erscheint jede Position einzeln mit Fläche, Rhythmus und Preis. Sie sehen, wofür Sie bezahlen, und können Positionen ergänzen oder streichen.</p>
+    </div>
+
+    <div class="lv">
+      <details name="lv" open>
+        <summary>
+          <span class="pos"><span class="pp">Pos. </span>01</span>
+          <h3 class="t">Unterhaltsreinigung Büro &amp; Praxis</h3>
+          <span class="meta"><span>Takt: <b>täglich bis wöchentlich</b></span><span>Bemessung: <b>m² Reinigungsfläche</b></span></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <div>
+            <p>Die regelmäßige Reinigung, bei der niemand etwas merkt, außer dass es morgens sauber ist. Zeiten, Räume und Zugang legen wir im Reinigungsplan schriftlich fest.</p>
+          </div>
+          <div>
+            <h4>Enthalten (Beispiel)</h4>
+            <ul>
+              <li>Böden saugen und feucht wischen</li>
+              <li>Arbeitsplätze und Ablagen nach Absprache</li>
+              <li>Sanitärräume und Teeküche</li>
+              <li>Abfall leeren, Verbrauchsmaterial nachfüllen</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details name="lv">
+        <summary>
+          <span class="pos"><span class="pp">Pos. </span>02</span>
+          <h3 class="t">Glasreinigung</h3>
+          <span class="meta"><span>Takt: <b>monatlich bis halbjährlich</b></span><span>Bemessung: <b>m² Glasfläche</b></span></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <div><p>Fenster, Glastüren und Trennwände, innen und außen. Streifenfrei, mit Rahmen und Fensterbänken. Besonders hohe oder schwer zugängliche Flächen klären wir bei der Besichtigung.</p></div>
+          <div>
+            <h4>Enthalten (Beispiel)</h4>
+            <ul>
+              <li>Fenster, Fassaden- und Schaufensterglas</li>
+              <li>Glastüren und Glastrennwände</li>
+              <li>Rahmen, Falze und Fensterbänke</li>
+              <li>Wintergarten und Oberlichter auf Anfrage</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details name="lv">
+        <summary>
+          <span class="pos"><span class="pp">Pos. </span>03</span>
+          <h3 class="t">Treppenhausreinigung</h3>
+          <span class="meta"><span>Takt: <b>wöchentlich oder 14-täglich</b></span><span>Bemessung: <b>m² oder je Etage</b></span></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <div><p>Der erste Eindruck eines Hauses. Wir reinigen Stufen, Podeste und Eingangsbereich nach festem Plan und melden Auffälligkeiten an die Verwaltung.</p></div>
+          <div>
+            <h4>Enthalten (Beispiel)</h4>
+            <ul>
+              <li>Stufen, Podeste und Handläufe</li>
+              <li>Eingang, Briefkastenanlage, Glasflächen</li>
+              <li>Kellergang und Aufzug nach Absprache</li>
+              <li>Spinnweben und Fußleisten</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details name="lv">
+        <summary>
+          <span class="pos"><span class="pp">Pos. </span>04</span>
+          <h3 class="t">Grundreinigung</h3>
+          <span class="meta"><span>Takt: <b>einmalig oder jährlich</b></span><span>Bemessung: <b>m² Fläche</b></span></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <div><p>Tiefenreinigung vor dem Einzug, nach dem Umbau oder als jährlicher Reset. Böden, Sanitär und Oberflächen werden gründlich gereinigt, auf Wunsch gepflegt oder neu beschichtet.</p></div>
+          <div>
+            <h4>Enthalten (Beispiel)</h4>
+            <ul>
+              <li>Hartböden maschinell reinigen und pflegen</li>
+              <li>Sanitär entkalken, Fugen und Armaturen</li>
+              <li>Heizkörper, Türen, Möbel von innen</li>
+              <li>Reinigung nach Umbau auf Anfrage</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details name="lv">
+        <summary>
+          <span class="pos"><span class="pp">Pos. </span>05</span>
+          <h3 class="t">Winterdienst</h3>
+          <span class="meta"><span>Takt: <b>November bis März, nach Wetterlage</b></span><span>Bemessung: <b>m² Räum- und Streufläche</b></span></span>
+          <span class="tog" aria-hidden="true"></span>
+        </summary>
+        <div class="body">
+          <div><p>Gehwege, Zugänge und Parkplätze werden geräumt und gestreut. Umfang und Zeiten richten sich nach der Satzung Ihrer Gemeinde und Ihren Vorgaben. Abrechnung als Saisonpauschale oder je Einsatz.</p></div>
+          <div>
+            <h4>Enthalten (Beispiel)</h4>
+            <ul>
+              <li>Schnee räumen, Glätte abstumpfen</li>
+              <li>Zugänge, Gehwege und Stellplätze</li>
+              <li>Einsatzprotokoll mit Datum und Uhrzeit</li>
+              <li>Streumittel nach örtlicher Vorgabe</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- BRANCHEN -->
+<section class="sec band" id="branchen" aria-labelledby="h-branchen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Branchenlösungen</p>
+      <h2 id="h-branchen">Jede Branche hat ihre eigenen Regeln</h2>
+      <p>Eine Praxis braucht andere Abläufe als eine Kanzlei, ein Mehrfamilienhaus andere als ein Großraumbüro. Wir planen zuerst die Besonderheiten, dann den Takt.</p>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Branche wählen">
+      <button class="tab" role="tab" id="tab-praxis" aria-selected="true" aria-controls="panel-praxis" type="button">Arztpraxen</button>
+      <button class="tab" role="tab" id="tab-kanzlei" aria-selected="false" aria-controls="panel-kanzlei" tabindex="-1" type="button">Kanzleien</button>
+      <button class="tab" role="tab" id="tab-verwaltung" aria-selected="false" aria-controls="panel-verwaltung" tabindex="-1" type="button">Hausverwaltungen</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-praxis" aria-labelledby="tab-praxis" tabindex="0">
+      <h3>Arztpraxen: Reinigung nach Ihrem Hygieneplan</h3>
+      <p class="lead">Wir reinigen außerhalb der Sprechzeiten und richten uns nach den Vorgaben Ihrer Praxis, nicht umgekehrt.</p>
+      <div class="panel-grid">
+        <div class="pcard"><h4>Darauf kommt es an</h4><ul><li>Hygieneplan der Praxis wird umgesetzt</li><li>Sensible Bereiche bleiben unberührt</li><li>Wartebereich zu Sprechstundenbeginn bereit</li></ul></div>
+        <div class="pcard"><h4>So planen wir</h4><ul><li>Farbcodierte Tücher je Bereich</li><li>Räume und Flächen im Plan einzeln aufgeführt</li><li>Schlüssel- und Alarmregelung schriftlich</li></ul></div>
+        <div class="pcard"><h4>Typischer Takt (Beispiel)</h4><p>Täglich nach Sprechstundenende, Grundreinigung einmal im Jahr, Glasreinigung vierteljährlich.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-kanzlei" aria-labelledby="tab-kanzlei" tabindex="0" hidden>
+      <h3>Kanzleien: diskret, pünktlich, ohne Spuren</h3>
+      <p class="lead">Akten und Mandantendaten bleiben, wo sie liegen. Besprechungsräume sind bereit, bevor der erste Mandant kommt.</p>
+      <div class="panel-grid">
+        <div class="pcard"><h4>Darauf kommt es an</h4><ul><li>Diskretion und feste Teammitglieder</li><li>Clean-Desk-Regeln werden eingehalten</li><li>Repräsentative Empfangs- und Besprechungsräume</li></ul></div>
+        <div class="pcard"><h4>So planen wir</h4><ul><li>Reinigung vor Arbeitsbeginn oder am Abend</li><li>Glastrennwände und Eingangsbereich im Fokus</li><li>Vertraulichkeitsvereinbarung auf Wunsch</li></ul></div>
+        <div class="pcard"><h4>Typischer Takt (Beispiel)</h4><p>Zwei- bis dreimal pro Woche, Besprechungsräume nach Bedarf, Glasreinigung monatlich.</p></div>
+      </div>
+    </div>
+
+    <div class="panel" role="tabpanel" id="panel-verwaltung" aria-labelledby="tab-verwaltung" tabindex="0" hidden>
+      <h3>Hausverwaltungen: viele Objekte, ein Ansprechpartner</h3>
+      <p class="lead">Treppenhäuser, Außenanlagen und Winterdienst aus einer Hand, abgerechnet je Objekt und mit klarem Nachweis.</p>
+      <div class="panel-grid">
+        <div class="pcard"><h4>Darauf kommt es an</h4><ul><li>Abrechnung je Objekt, ohne Rückfragen</li><li>Verlässlicher Winterdienst mit Protokoll</li><li>Schnelle Rückmeldung bei Mängeln</li></ul></div>
+        <div class="pcard"><h4>So planen wir</h4><ul><li>Objektliste mit Takt und Ansprechperson</li><li>Mängelmeldung mit Foto und Datum</li><li>Vertretung bei Urlaub und Krankheit geregelt</li></ul></div>
+        <div class="pcard"><h4>Typischer Takt (Beispiel)</h4><p>Treppenhaus wöchentlich oder 14-täglich, Winterdienst von November bis März, Grundreinigung nach Bedarf.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECHNER -->
+<section class="sec calc-sec" id="rechner" aria-labelledby="h-rechner">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Angebotsrechner · <span class="tag-demo">Beispielrechnung</span></p>
+      <h2 id="h-rechner">Was kostet das ungefähr?</h2>
+      <p>Leistung wählen, Fläche einstellen, Rhythmus festlegen. Sie sehen sofort eine Spanne. Ein verbindliches Angebot gibt es erst nach der Besichtigung.</p>
+    </div>
+
+    <div class="calc">
+      <form class="calc-form" id="calcForm" autocomplete="off" onsubmit="return false" aria-label="Angebotsrechner (Beispielrechnung)">
+        <fieldset>
+          <legend>1 · Leistungsart</legend>
+          <div class="svc-grid" id="svcGrid"></div>
+        </fieldset>
+
+        <fieldset>
+          <legend id="areaLegend">2 · Fläche</legend>
+          <div class="area-row">
+            <div>
+              <input class="slider" type="range" id="areaRange" min="20" max="2000" step="5" value="180" aria-labelledby="areaLegend">
+            </div>
+            <div>
+              <input type="number" id="areaNum" min="20" max="2000" step="5" value="180" inputmode="numeric" aria-label="Fläche in Quadratmetern">
+              <span class="unit" id="areaUnit">m²</span>
+            </div>
+          </div>
+          <p class="calc-help">Genaue Maße nehmen wir bei der Besichtigung auf. Eine grobe Schätzung reicht hier.</p>
+        </fieldset>
+
+        <fieldset>
+          <legend>3 · Rhythmus</legend>
+          <div class="iv-grid" id="ivGrid"></div>
+        </fieldset>
+
+        <fieldset id="optSet" style="margin-bottom:0">
+          <legend>4 · Optionen</legend>
+          <div class="svc-grid">
+            <label class="opt chk" id="optHygWrap"><input type="checkbox" id="optHyg"><span>Praxis- und Hygienebereich</span></label>
+            <label class="opt chk" id="optMatWrap"><input type="checkbox" id="optMat"><span>Verbrauchsmaterial nachfüllen</span></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="calc-out" aria-live="polite" aria-atomic="true">
+        <span class="badge-demo">Beispielrechnung · keine Preisangabe</span>
+        <p class="out-svc" id="outSvc">Unterhaltsreinigung</p>
+        <p class="out-range" id="outRange">– €</p>
+        <span class="out-unit" id="outUnit">netto, zzgl. MwSt.</span>
+
+        <div class="bar" aria-hidden="true">
+          <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
+          <div class="bar-axis"><span>0 €</span><span id="barMax">–</span></div>
+        </div>
+
+        <div class="takt">
+          <p class="takt-title" id="taktTitle">Takt</p>
+          <div class="takt-grid days" id="taktGrid" aria-hidden="true"></div>
+        </div>
+
+        <dl class="ledger" id="ledger"></dl>
+
+        <div class="out-actions">
+          <button class="btn btn-primary" type="button" id="takeOver">Eckdaten in die Anfrage übernehmen</button>
+          <p class="fine">Frei gewählte Beispielwerte, keine echten Preise. Im Echtbetrieb hinterlegen wir hier Ihre eigene Kalkulation mit Mindestpauschalen, Anfahrt und Zuschlägen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABLAUF -->
+<section class="sec" id="ablauf" aria-labelledby="h-ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Ablauf</p>
+      <h2 id="h-ablauf">Von der Besichtigung zum ersten Einsatz</h2>
+      <p>Drei Schritte, jeder mit einem klaren Ergebnis. Zeitrahmen und Konditionen trägt der echte Betrieb ein.</p>
+    </div>
+
+    <ol class="steps">
+      <li class="step">
+        <span class="n" aria-hidden="true">1</span>
+        <div>
+          <h3>Besichtigung</h3>
+          <p>Wir schauen uns die Räume gemeinsam an, messen Flächen und klären Zugang, Zeiten und besondere Anforderungen.</p>
+          <ul><li>Flächen und Bodenarten aufnehmen</li><li>Wünsche und Hygienevorgaben besprechen</li><li>Schlüssel und Zugang klären</li></ul>
+          <p class="result">Ergebnis: Objektdaten · Termin <span class="ph">[Zeitrahmen]</span></p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="n" aria-hidden="true">2</span>
+        <div>
+          <h3>Angebot</h3>
+          <p>Sie erhalten ein schriftliches Leistungsverzeichnis mit allen Positionen, dem Rhythmus und dem Preis je Position.</p>
+          <ul><li>Takt und Leistungsumfang einzeln aufgeführt</li><li>Preis nachvollziehbar, ohne Kleingedrucktes</li><li>Änderungen jederzeit vor Start möglich</li></ul>
+          <p class="result">Ergebnis: Angebot · Frist <span class="ph">[Zeitrahmen]</span></p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="n" aria-hidden="true">3</span>
+        <div>
+          <h3>Start</h3>
+          <p>Wir weisen das Team vor Ort ein, übergeben den Reinigungsplan und starten mit einer gründlichen Erstreinigung.</p>
+          <ul><li>Einweisung und Schlüsselprotokoll</li><li>Reinigungsplan hängt im Objekt</li><li>Ansprechperson: <span class="ph">[Name]</span></li></ul>
+          <p class="result">Ergebnis: Erster Einsatz · Beginn <span class="ph">[Datum]</span></p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- QUALITÄT -->
+<section class="sec" id="qualitaet" aria-labelledby="h-qualitaet" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Qualität &amp; Nachweise · <span class="tag-demo">Platzhalter</span></p>
+      <h2 id="h-qualitaet">Was Sie prüfen können</h2>
+      <p>Der linke Teil beschreibt einen Beispielprozess. Rechts stehen Platzhalter für Nachweise, die der echte Betrieb mit eigenen Unterlagen füllt.</p>
+    </div>
+
+    <div class="q-grid">
+      <ol class="q-list" aria-label="Beispielprozess Qualitätssicherung">
+        <li><span class="qi" aria-hidden="true">→</span><div><b>Reinigungsplan im Objekt</b><span class="d">Was, wann und wo gereinigt wird, steht schriftlich vor Ort.</span></div></li>
+        <li><span class="qi" aria-hidden="true">→</span><div><b>Regelmäßige Objektbegehung</b><span class="d">Im vereinbarten Rhythmus (<span class="ph">[Intervall]</span>) prüfen wir das Ergebnis gemeinsam mit Ihnen.</span></div></li>
+        <li><span class="qi" aria-hidden="true">→</span><div><b>Mängel melden, Nachbesserung</b><span class="d">Rückmeldung per Telefon oder Foto, Nachbesserung innerhalb <span class="ph">[Frist]</span>.</span></div></li>
+        <li><span class="qi" aria-hidden="true">→</span><div><b>Geschultes Stammteam</b><span class="d">Neue Teammitglieder werden eingearbeitet, bevor sie allein im Objekt arbeiten.</span></div></li>
+      </ol>
+
+      <div class="ph-grid">
+        <div class="ph-tile"><span class="tag-demo">Platzhalter</span><h3>Zertifikat</h3><p>Hier Zertifikat oder Qualitätssiegel mit Aussteller und Gültigkeit eintragen, sofern vorhanden.</p></div>
+        <div class="ph-tile"><span class="tag-demo">Platzhalter</span><h3>Versicherung</h3><p>Hier Betriebshaftpflicht-Nachweis mit Versicherer und Deckungssumme ergänzen.</p></div>
+        <div class="ph-tile"><span class="tag-demo">Platzhalter</span><h3>Mitgliedschaft</h3><p>Hier Innung, Verband oder Handwerkskammer eintragen, falls zutreffend.</p></div>
+        <div class="ph-tile"><span class="tag-demo">Platzhalter</span><h3>Referenzobjekte</h3><p>Hier Referenzen nennen, nur mit schriftlicher Freigabe der Kunden.</p></div>
+        <div class="ph-tile ph-quote"><span class="tag-demo">Platzhalter · keine echte Kundenstimme</span><h3>Kundenstimme</h3><p>Hier erscheint ein echtes, freigegebenes Zitat mit Name, Funktion und Datum. Bis dahin bleibt dieser Platz bewusst leer.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAKT -->
+<section class="sec band" id="kontakt" aria-labelledby="h-kontakt">
+  <div class="wrap">
+    <div class="contact">
+      <div class="contact-info">
+        <div class="sec-head" style="margin:0">
+          <p class="eyebrow">Kontakt</p>
+          <h2 id="h-kontakt">Besichtigung anfragen</h2>
+          <p>Schreiben Sie kurz, was gereinigt werden soll. Wir melden uns und vereinbaren einen Termin vor Ort.</p>
+        </div>
+        <div><h3>Telefon</h3><p><span class="ph">[Telefonnummer ergänzen]</span></p></div>
+        <div><h3>E-Mail</h3><p><span class="ph">[E-Mail-Adresse ergänzen]</span></p></div>
+        <div><h3>Sitz</h3><p><span class="ph">[Straße Nr., PLZ Ort]</span></p></div>
+        <div><h3>Erreichbarkeit</h3><p><span class="ph">[Zeiten ergänzen]</span></p></div>
+      </div>
+
+      <div class="form-card">
+        <div class="form-note" role="note"><span aria-hidden="true">ⓘ</span><span><strong>Demo-Formular.</strong> Eingaben werden nicht gesendet und nicht gespeichert.</span></div>
+        <form id="contactForm" novalidate>
+          <div class="form-grid">
+            <div class="field" data-f="name"><label for="f-name">Name <i aria-hidden="true">*</i></label><input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="e-name"><span class="err" id="e-name">Bitte tragen Sie Ihren Namen ein.</span></div>
+            <div class="field"><label for="f-firma">Firma / Praxis</label><input id="f-firma" name="firma" type="text" autocomplete="organization"></div>
+            <div class="field" data-f="mail"><label for="f-mail">E-Mail <i aria-hidden="true">*</i></label><input id="f-mail" name="mail" type="email" autocomplete="email" required aria-describedby="e-mail"><span class="err" id="e-mail">Bitte tragen Sie eine gültige E-Mail-Adresse ein.</span></div>
+            <div class="field"><label for="f-tel">Telefon</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+            <div class="field"><label for="f-objekt">Objektart</label>
+              <select id="f-objekt" name="objekt"><option>Büro</option><option>Arztpraxis</option><option>Kanzlei</option><option>Hausverwaltung / Mehrfamilienhaus</option><option>Sonstiges</option></select></div>
+            <div class="field"><label for="f-leistung">Leistung</label>
+              <select id="f-leistung" name="leistung"><option>Unterhaltsreinigung</option><option>Glasreinigung</option><option>Treppenhausreinigung</option><option>Grundreinigung</option><option>Winterdienst</option><option>Mehrere / Beratung gewünscht</option></select></div>
+            <div class="field full"><label for="f-ort">Ort des Objekts</label><input id="f-ort" name="ort" type="text" autocomplete="address-level2" placeholder="z. B. Konstanz"></div>
+            <div class="field full"><label for="f-msg">Nachricht</label><textarea id="f-msg" name="msg" placeholder="Was soll gereinigt werden, wie groß ist die Fläche, wann passt eine Besichtigung?"></textarea></div>
+            <div class="field full" data-f="consent">
+              <div class="consent"><input id="f-consent" name="consent" type="checkbox" required aria-describedby="e-consent"><label for="f-consent">Ich habe die <a href="#datenschutz">Datenschutzhinweise</a> (Platzhalter) gelesen. <i aria-hidden="true" style="color:var(--err);font-style:normal">*</i></label></div>
+              <span class="err" id="e-consent">Bitte bestätigen Sie die Datenschutzhinweise.</span>
+            </div>
+          </div>
+          <div style="margin-top:1.3rem"><button type="submit" class="btn btn-primary" style="width:100%">Anfrage absenden (Demo)</button></div>
+          <div class="form-status" id="formStatus" role="status" tabindex="-1"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /view-home -->
+
+<!-- IMPRESSUM -->
+<div id="view-impressum" class="legal" hidden>
+  <div class="wrap"><div class="col">
+    <a class="back" href="#start">← Zurück zur Startseite</a>
+    <h1>Impressum</h1>
+    <p class="warn" style="padding:.9rem 1rem"><strong>Platzhalterseite.</strong> Alle Felder sind vom echten Betrieb zu ergänzen und rechtlich prüfen zu lassen. Diese Demo-Seite gehört zu einem fiktiven Betrieb.</p>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <dl class="fields">
+      <div><dt>Firmenname</dt><dd><span class="ph">[Firmenname und Rechtsform]</span></dd></div>
+      <div><dt>Anschrift</dt><dd><span class="ph">[Straße Nr.]</span>, <span class="ph">[PLZ Ort]</span></dd></div>
+      <div><dt>Vertreten durch</dt><dd><span class="ph">[Inhaber / Geschäftsführung]</span></dd></div>
+    </dl>
+
+    <h2>Kontakt</h2>
+    <dl class="fields">
+      <div><dt>Telefon</dt><dd><span class="ph">[Telefonnummer]</span></dd></div>
+      <div><dt>E-Mail</dt><dd><span class="ph">[E-Mail-Adresse]</span></dd></div>
+    </dl>
+
+    <h2>Register und Steuer</h2>
+    <dl class="fields">
+      <div><dt>Registergericht</dt><dd><span class="ph">[Gericht, falls eingetragen]</span></dd></div>
+      <div><dt>Registernummer</dt><dd><span class="ph">[HRA / HRB]</span></dd></div>
+      <div><dt>USt-IdNr.</dt><dd><span class="ph">[Umsatzsteuer-ID gemäß § 27a UStG]</span></dd></div>
+    </dl>
+
+    <h2>Berufsrechtliche Angaben</h2>
+    <dl class="fields">
+      <div><dt>Zuständige Kammer</dt><dd><span class="ph">[Handwerkskammer / IHK]</span></dd></div>
+      <div><dt>Berufsbezeichnung</dt><dd><span class="ph">[z. B. Gebäudereiniger-Handwerk, verliehen in Deutschland]</span></dd></div>
+      <div><dt>Berufsrechtliche Regelungen</dt><dd><span class="ph">[Fundstelle ergänzen]</span></dd></div>
+      <div><dt>Aufsichtsbehörde</dt><dd><span class="ph">[falls erforderlich]</span></dd></div>
+    </dl>
+
+    <h2>Verantwortlich für den Inhalt</h2>
+    <dl class="fields">
+      <div><dt>Name und Anschrift</dt><dd><span class="ph">[Person nach § 18 Abs. 2 MStV]</span></dd></div>
+    </dl>
+
+    <h2>Streitbeilegung</h2>
+    <p><span class="ph">[Hinweis zur Teilnahme an Verbraucherschlichtungsverfahren ergänzen: bereit / nicht bereit]</span></p>
+  </div></div>
+</div>
+
+<!-- DATENSCHUTZ -->
+<div id="view-datenschutz" class="legal" hidden>
+  <div class="wrap"><div class="col">
+    <a class="back" href="#start">← Zurück zur Startseite</a>
+    <h1>Datenschutzerklärung</h1>
+    <p class="warn" style="padding:.9rem 1rem"><strong>Platzhalterseite.</strong> Diese Gliederung zeigt, welche Punkte eine Datenschutzerklärung typischerweise abdeckt. Der echte Betrieb ergänzt die Felder und lässt den Text rechtlich prüfen.</p>
+
+    <h2>1. Verantwortlicher</h2>
+    <dl class="fields">
+      <div><dt>Name</dt><dd><span class="ph">[Firmenname]</span></dd></div>
+      <div><dt>Anschrift</dt><dd><span class="ph">[Straße Nr., PLZ Ort]</span></dd></div>
+      <div><dt>E-Mail</dt><dd><span class="ph">[E-Mail-Adresse]</span></dd></div>
+      <div><dt>Datenschutzbeauftragte</dt><dd><span class="ph">[falls benannt]</span></dd></div>
+    </dl>
+
+    <h2>2. Hosting und Server-Logfiles</h2>
+    <p>Beim Aufruf der Seite verarbeitet der Hosting-Anbieter technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite). Anbieter: <span class="ph">[Hosting-Anbieter]</span>. Speicherdauer: <span class="ph">[Dauer]</span>. Rechtsgrundlage: <span class="ph">[z. B. Art. 6 Abs. 1 lit. f DSGVO]</span>.</p>
+
+    <h2>3. Kontaktformular</h2>
+    <p>In dieser Demo-Version wird das Formular <strong>nicht</strong> übertragen. Im Echtbetrieb: Zweck der Verarbeitung <span class="ph">[Bearbeitung der Anfrage]</span>, Empfänger <span class="ph">[E-Mail-Dienst / Anbieter]</span>, Speicherdauer <span class="ph">[Dauer]</span>.</p>
+
+    <h2>4. Schriftarten</h2>
+    <p>Diese Demo lädt Schriften von Google Fonts, dabei wird die IP-Adresse an Google übertragen. Im Echtbetrieb sollten die Schriften lokal eingebunden werden. <span class="ph">[Entscheidung und Text ergänzen]</span></p>
+
+    <h2>5. Cookies und Analyse</h2>
+    <p>Diese Demo setzt keine Cookies und nutzt keine Analyse-Dienste. <span class="ph">[Im Echtbetrieb: Cookie-Hinweis und Einwilligung ergänzen, falls eingesetzt]</span></p>
+
+    <h2>6. Ihre Rechte</h2>
+    <ul>
+      <li>Auskunft, Berichtigung und Löschung</li>
+      <li>Einschränkung der Verarbeitung und Datenübertragbarkeit</li>
+      <li>Widerspruch gegen die Verarbeitung</li>
+      <li>Widerruf erteilter Einwilligungen</li>
+    </ul>
+
+    <h2>7. Beschwerderecht</h2>
+    <p>Zuständige Aufsichtsbehörde: <span class="ph">[Behörde und Anschrift ergänzen]</span>.</p>
+
+    <h2>8. Stand</h2>
+    <p><span class="ph">[Datum der letzten Aktualisierung]</span></p>
+  </div></div>
+</div>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <b>Klarhafen</b>
+        <p style="color:var(--band-ink-2)">Gebäudereinigung am Bodensee und im Hegau.</p>
+      </div>
+      <nav aria-label="Seitenbereiche">
+        <h2>Seite</h2>
+        <ul>
+          <li><a href="#leistungen">Leistungen</a></li>
+          <li><a href="#branchen">Branchen</a></li>
+          <li><a href="#rechner">Angebotsrechner</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Rechtliches">
+        <h2>Rechtliches</h2>
+        <ul>
+          <li><a href="#impressum">Impressum</a></li>
+          <li><a href="#datenschutz">Datenschutz</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="foot-demo"><strong>Demo-Seite.</strong> Klarhafen ist ein fiktiver Betrieb. Namen, Preise, Abläufe und Angaben sind Beispielinhalte und kein Angebot. Das Kontaktformular überträgt nichts.</p>
+  </div>
+</footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  try { document.documentElement.lang = "de"; } catch (e) {}
+
+  /* ---------- Ansichten (Startseite, Impressum, Datenschutz) ---------- */
+  var views = { home: $("#view-home"), impressum: $("#view-impressum"), datenschutz: $("#view-datenschutz") };
+  var current = "home";
+  function route() {
+    var h = decodeURIComponent((location.hash || "").slice(1));
+    var view = (h === "impressum" || h === "datenschutz") ? h : "home";
+    var wasLegal = current !== "home";
+    current = view;
+    Object.keys(views).forEach(function (k) { views[k].hidden = (k !== view); });
+    if (view !== "home") { window.scrollTo(0, 0); return; }
+    /* Kommt man aus einer Rechtsseite zurück, springt der Browser nicht selbst zum Ziel. */
+    if (wasLegal) {
+      var el = h ? document.getElementById(h) : null;
+      if (el) { el.scrollIntoView({ behavior: "instant", block: "start" }); } else { window.scrollTo(0, 0); }
+    }
+  }
+  window.addEventListener("hashchange", function () { route(); closeMenu(); });
+  route();
+  if (current === "home" && location.hash) {
+    var t0 = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (t0) t0.scrollIntoView();
+  }
+
+  /* ---------- Menü ---------- */
+  var menuBtn = $("#menuBtn"), nav = $("#nav");
+  function closeMenu() { nav.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); }
+  menuBtn.addEventListener("click", function () {
+    var open = nav.classList.toggle("open");
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  nav.addEventListener("click", function (e) { if (e.target.closest("a")) closeMenu(); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeMenu(); });
+
+  /* ---------- Wisch-Regler ---------- */
+  var wipe = $("#wipe"), wipeRange = $("#wipeRange");
+  function setWipe() {
+    var v = +wipeRange.value;
+    wipe.style.setProperty("--pos", v + "%");
+    wipeRange.setAttribute("aria-valuetext", (100 - v) + " Prozent gereinigt");
+  }
+  wipeRange.addEventListener("input", setWipe);
+  setWipe();
+
+  /* ---------- Tabs ---------- */
+  var tabs = $$('[role="tab"]');
+  function selectTab(t, focus) {
+    tabs.forEach(function (x) {
+      var on = x === t;
+      x.setAttribute("aria-selected", on ? "true" : "false");
+      x.tabIndex = on ? 0 : -1;
+      document.getElementById(x.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (focus) t.focus();
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { selectTab(t, false); });
+    t.addEventListener("keydown", function (e) {
+      var n = null;
+      if (e.key === "ArrowRight" || e.key === "ArrowDown") n = tabs[(i + 1) % tabs.length];
+      else if (e.key === "ArrowLeft" || e.key === "ArrowUp") n = tabs[(i - 1 + tabs.length) % tabs.length];
+      else if (e.key === "Home") n = tabs[0];
+      else if (e.key === "End") n = tabs[tabs.length - 1];
+      if (n) { e.preventDefault(); selectTab(n, true); }
+    });
+  });
+
+  /* ---------- Angebotsrechner (Beispielwerte, keine echten Preise) ---------- */
+  var MONTHS = ["Jan", "Feb", "Mär", "Apr", "Mai", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Dez"];
+  var DAYS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"];
+  var ALL12 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  /* rate = Euro je m² und Einsatz (von, bis); minJob = Mindestpauschale je Einsatz (von, bis) */
+  var SERVICES = {
+    unterhalt: { name: "Unterhaltsreinigung", areaLabel: "Reinigungsfläche", min: 20, max: 2000, step: 5, def: 180, rate: [0.22, 0.38], minJob: [28, 45], hygiene: true, material: true, defIv: "3", form: "Unterhaltsreinigung",
+      intervals: [
+        { id: "5", label: "5× pro Woche", basis: "month", perYear: 260, strip: ["d", [0, 1, 2, 3, 4]], takt: "Mo bis Fr" },
+        { id: "3", label: "3× pro Woche", basis: "month", perYear: 156, strip: ["d", [0, 2, 4]], takt: "Mo, Mi, Fr" },
+        { id: "2", label: "2× pro Woche", basis: "month", perYear: 104, strip: ["d", [1, 3]], takt: "Di, Do" },
+        { id: "1", label: "1× pro Woche", basis: "month", perYear: 52, strip: ["d", [2]], takt: "Mi" }
+      ] },
+    glas: { name: "Glasreinigung", areaLabel: "Glasfläche", min: 5, max: 1000, step: 5, def: 60, rate: [2.8, 4.8], minJob: [55, 90], defIv: "q", form: "Glasreinigung",
+      intervals: [
+        { id: "m", label: "monatlich", basis: "year", perYear: 12, strip: ["m", ALL12], takt: "jeden Monat" },
+        { id: "q", label: "vierteljährlich", basis: "year", perYear: 4, strip: ["m", [2, 5, 8, 11]], takt: "Mär, Jun, Sep, Dez" },
+        { id: "h", label: "halbjährlich", basis: "year", perYear: 2, strip: ["m", [3, 9]], takt: "Apr, Okt" },
+        { id: "e", label: "einmalig", basis: "job", perYear: 1, strip: ["m", [4]], takt: "einmalig" }
+      ] },
+    treppe: { name: "Treppenhausreinigung", areaLabel: "Treppenhausfläche", min: 10, max: 600, step: 5, def: 90, rate: [0.45, 0.8], minJob: [32, 48], defIv: "1", form: "Treppenhausreinigung",
+      intervals: [
+        { id: "2", label: "2× pro Woche", basis: "month", perYear: 104, strip: ["d", [1, 4]], takt: "Di, Fr" },
+        { id: "1", label: "1× pro Woche", basis: "month", perYear: 52, strip: ["d", [2]], takt: "Mi" },
+        { id: "14", label: "alle 14 Tage", basis: "month", perYear: 26, strip: ["d", [2]], takt: "Mi, jede zweite Woche" }
+      ] },
+    grund: { name: "Grundreinigung", areaLabel: "Reinigungsfläche", min: 20, max: 3000, step: 10, def: 250, rate: [3.4, 6.8], minJob: [190, 280], hygiene: true, defIv: "e", form: "Grundreinigung",
+      intervals: [
+        { id: "e", label: "einmalig", basis: "job", perYear: 1, strip: ["m", [2]], takt: "einmalig" },
+        { id: "j", label: "jährlich", basis: "year", perYear: 1, strip: ["m", [2]], takt: "einmal im Jahr, z. B. Mär" },
+        { id: "h", label: "halbjährlich", basis: "year", perYear: 2, strip: ["m", [2, 8]], takt: "Mär, Sep" }
+      ] },
+    winter: { name: "Winterdienst", areaLabel: "Räum- und Streufläche", min: 20, max: 3000, step: 10, def: 150, rate: [1.9, 3.4], minJob: [230, 340], defIv: "s", form: "Winterdienst",
+      intervals: [
+        { id: "s", label: "Saisonpauschale", basis: "season", perYear: null, rate: [1.9, 3.4], minJob: [230, 340], strip: ["m", [10, 11, 0, 1, 2]], takt: "Nov bis März, nach Wetterlage" },
+        { id: "j", label: "nach Aufwand", basis: "job", perYear: null, rate: [0.12, 0.22], minJob: [32, 52], strip: ["m", [10, 11, 0, 1, 2]], takt: "Nov bis März, nach Wetterlage" }
+      ] }
+  };
+  var ORDER = ["unterhalt", "glas", "treppe", "grund", "winter"];
+  var HYG = [1.10, 1.18];       /* Zuschlag Praxis/Hygiene: +10 bis +18 % */
+  var MAT = [18, 36];           /* Verbrauchsmaterial: Euro je Monat */
+  var UNITS = { month: "€ pro Monat", year: "€ pro Jahr", job: "€ je Einsatz", season: "€ pro Saison" };
+
+  var nf0 = new Intl.NumberFormat("de-DE", { maximumFractionDigits: 0 });
+  var nf1 = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+  var nf2 = new Intl.NumberFormat("de-DE", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  function stepFor(v) { return v < 100 ? 5 : v < 1000 ? 10 : v < 5000 ? 50 : 100; }
+  function roundLo(v) { var s = stepFor(v); return Math.floor(v / s) * s; }
+  function roundHi(v) { var s = stepFor(v); return Math.ceil(v / s) * s; }
+  function eur(v) { return nf0.format(v) + " €"; }
+  function range(a, b, f) { f = f || eur; return f(a) + " – " + f(b); }
+
+  var state = { svc: "unterhalt", iv: "3", area: 180, hyg: false, mat: false };
+  var svcGrid = $("#svcGrid"), ivGrid = $("#ivGrid");
+  var areaRange = $("#areaRange"), areaNum = $("#areaNum");
+  var last = null;
+
+  function buildServices() {
+    svcGrid.innerHTML = "";
+    ORDER.forEach(function (k) {
+      var l = document.createElement("label"); l.className = "opt";
+      l.innerHTML = '<input type="radio" name="svc" value="' + k + '"><span>' + SERVICES[k].name + "</span>";
+      if (k === state.svc) l.querySelector("input").checked = true;
+      svcGrid.appendChild(l);
+    });
+  }
+  function buildIntervals() {
+    var s = SERVICES[state.svc];
+    ivGrid.innerHTML = "";
+    s.intervals.forEach(function (iv) {
+      var l = document.createElement("label"); l.className = "opt";
+      l.innerHTML = '<input type="radio" name="iv" value="' + iv.id + '"><span>' + iv.label + "</span>";
+      if (iv.id === state.iv) l.querySelector("input").checked = true;
+      ivGrid.appendChild(l);
+    });
+  }
+  function configureArea() {
+    var s = SERVICES[state.svc];
+    areaRange.min = areaNum.min = s.min;
+    areaRange.max = areaNum.max = s.max;
+    areaRange.step = areaNum.step = s.step;
+    state.area = Math.min(s.max, Math.max(s.min, state.area));
+    areaRange.value = areaNum.value = state.area;
+    $("#areaLegend").textContent = "2 · " + s.areaLabel + " in m²";
+    areaNum.setAttribute("aria-label", s.areaLabel + " in Quadratmetern");
+  }
+  function configureOptions() {
+    var s = SERVICES[state.svc];
+    $("#optHygWrap").hidden = !s.hygiene;
+    $("#optMatWrap").hidden = !s.material;
+    $("#optSet").hidden = !(s.hygiene || s.material);
+    if (!s.hygiene) { state.hyg = false; $("#optHyg").checked = false; }
+    if (!s.material) { state.mat = false; $("#optMat").checked = false; }
+  }
+
+  function compute() {
+    var s = SERVICES[state.svc];
+    var iv = s.intervals.filter(function (x) { return x.id === state.iv; })[0] || s.intervals[0];
+    var rate = iv.rate || s.rate, minJob = iv.minJob || s.minJob;
+    var a = state.area;
+    var base = [a * rate[0], a * rate[1]];
+    var floorHit = base[0] < minJob[0] || base[1] < minJob[1];
+    var job = [Math.max(base[0], minJob[0]), Math.max(base[1], minJob[1])];
+    var hyg = state.hyg && s.hygiene;
+    if (hyg) job = [job[0] * HYG[0], job[1] * HYG[1]];
+    var total, per = iv.perYear;
+    var mat = state.mat && s.material;
+    if (iv.basis === "month") {
+      total = [job[0] * per / 12, job[1] * per / 12];
+      if (mat) total = [total[0] + MAT[0], total[1] + MAT[1]];
+    } else if (iv.basis === "year") {
+      total = [job[0] * per, job[1] * per];
+    } else {
+      total = [job[0], job[1]];
+    }
+    return { s: s, iv: iv, rate: rate, minJob: minJob, job: job, total: total, hyg: hyg, mat: mat, floorHit: floorHit, per: per };
+  }
+
+  function render() {
+    var r = compute(), s = r.s, iv = r.iv;
+    last = r;
+    var lo = roundLo(r.total[0]), hi = roundHi(r.total[1]);
+    $("#outSvc").textContent = s.name + " · " + nf0.format(state.area) + " m²";
+    $("#outRange").textContent = eur(lo) + " – " + eur(hi);
+    $("#outUnit").textContent = UNITS[iv.basis] + " · " + iv.label + " · netto, zzgl. MwSt.";
+
+    /* Balken: eine Skala von 0 bis max */
+    var max = roundHi(hi * 1.3);
+    $("#barFill").style.left = (lo / max * 100) + "%";
+    $("#barFill").style.width = Math.max(2, (hi - lo) / max * 100) + "%";
+    $("#barMax").textContent = eur(max);
+
+    /* Takt-Leiste */
+    var grid = $("#taktGrid"), type = iv.strip[0], on = iv.strip[1];
+    var labels = type === "d" ? DAYS : MONTHS;
+    grid.className = "takt-grid " + (type === "d" ? "days" : "months");
+    grid.innerHTML = labels.map(function (t, i) { return '<span class="cell' + (on.indexOf(i) > -1 ? " on" : "") + '">' + t + "</span>"; }).join("");
+    $("#taktTitle").textContent = type === "d" ? "Takt in der Woche" : "Takt im Jahr";
+
+    /* Rechenweg */
+    var perUnit = iv.basis === "season" ? "Saison" : "Einsatz";
+    var rows = [];
+    rows.push(["Fläche", nf0.format(state.area) + " m²"]);
+    rows.push(["Ansatz (Beispiel)", range(r.rate[0], r.rate[1], function (v) { return nf2.format(v); }) + " € je m² und " + perUnit]);
+    rows.push(["Mindestpauschale", range(r.minJob[0], r.minJob[1]) + (r.floorHit ? " (greift hier)" : "")]);
+    if (r.hyg) rows.push(["Zuschlag Hygiene", "+10 bis +18 %"]);
+    if (iv.basis !== "season") rows.push(["Je Einsatz", range(roundLo(r.job[0]), roundHi(r.job[1]))]);
+    if (iv.basis === "month") {
+      rows.push(["Einsätze", "ca. " + nf1.format(r.per / 12) + " pro Monat"]);
+      if (r.mat) rows.push(["Verbrauchsmaterial", "+" + range(MAT[0], MAT[1]) + " pro Monat"]);
+      rows.push(["Hochgerechnet", range(roundLo(r.total[0] * 12), roundHi(r.total[1] * 12)) + " pro Jahr"]);
+    } else if (iv.basis === "year") {
+      rows.push(["Einsätze", r.per + " pro Jahr"]);
+    }
+    rows.push(["Takt", iv.takt]);
+    $("#ledger").innerHTML = rows.map(function (x) { return "<div><dt>" + x[0] + "</dt><dd>" + x[1] + "</dd></div>"; }).join("");
+
+    /* Slider-Füllung */
+    var pct = (state.area - s.min) / (s.max - s.min) * 100;
+    areaRange.style.setProperty("--fill", pct + "%");
+  }
+
+  svcGrid.addEventListener("change", function (e) {
+    if (e.target.name !== "svc") return;
+    state.svc = e.target.value;
+    var s = SERVICES[state.svc];
+    state.iv = s.defIv; state.area = s.def;
+    buildIntervals(); configureArea(); configureOptions(); render();
+  });
+  ivGrid.addEventListener("change", function (e) {
+    if (e.target.name !== "iv") return;
+    state.iv = e.target.value; render();
+  });
+  areaRange.addEventListener("input", function () { state.area = +areaRange.value; areaNum.value = state.area; render(); });
+  areaNum.addEventListener("input", function () {
+    var s = SERVICES[state.svc], v = parseFloat(areaNum.value);
+    if (isNaN(v)) return;
+    state.area = Math.min(s.max, Math.max(s.min, v));
+    areaRange.value = state.area; render();
+  });
+  areaNum.addEventListener("change", function () { areaNum.value = state.area; });
+  $("#optHyg").addEventListener("change", function (e) { state.hyg = e.target.checked; render(); });
+  $("#optMat").addEventListener("change", function (e) { state.mat = e.target.checked; render(); });
+
+  buildServices(); buildIntervals(); configureArea(); configureOptions(); render();
+
+  /* Eckdaten in das Formular übernehmen */
+  $("#takeOver").addEventListener("click", function () {
+    if (!last) return;
+    var s = last.s, iv = last.iv;
+    var sel = $("#f-leistung");
+    for (var i = 0; i < sel.options.length; i++) { if (sel.options[i].text === s.form) sel.selectedIndex = i; }
+    var txt = "Eckdaten aus der Beispielrechnung: " + s.name + ", " + nf0.format(state.area) + " m², " + iv.label +
+      (last.hyg ? ", Praxis-/Hygienebereich" : "") + (last.mat ? ", mit Verbrauchsmaterial" : "") +
+      ". Orientierung: " + range(roundLo(last.total[0]), roundHi(last.total[1])) + " " + UNITS[iv.basis].replace("€ ", "") + " netto (unverbindlich).";
+    $("#f-msg").value = txt;
+    var k = $("#kontakt");
+    if (k) k.scrollIntoView();
+    setTimeout(function () { $("#f-name").focus({ preventScroll: true }); }, 250);
+  });
+
+  /* ---------- Kontaktformular (nur Oberfläche) ---------- */
+  var form = $("#contactForm"), status = $("#formStatus");
+  function setBad(name, bad) {
+    var f = form.querySelector('[data-f="' + name + '"]');
+    if (!f) return;
+    f.classList.toggle("bad", bad);
+    var inp = f.querySelector("input"); if (inp) inp.setAttribute("aria-invalid", bad ? "true" : "false");
+  }
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = $("#f-name").value.trim();
+    var mail = $("#f-mail").value.trim();
+    var okMail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail);
+    var okConsent = $("#f-consent").checked;
+    setBad("name", !name); setBad("mail", !okMail); setBad("consent", !okConsent);
+    status.className = "form-status";
+    if (!name || !okMail || !okConsent) {
+      status.className = "form-status show error";
+      status.textContent = "Bitte prüfen Sie die markierten Felder.";
+      var first = !name ? $("#f-name") : !okMail ? $("#f-mail") : $("#f-consent");
+      first.focus();
+      return;
+    }
+    status.className = "form-status show";
+    status.textContent = "Demo: Es wurde nichts gesendet und nichts gespeichert. Im Echtbetrieb ginge die Anfrage jetzt an die hinterlegte E-Mail-Adresse.";
+    status.focus();
+  });
+})();
+</script>
